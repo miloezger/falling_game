@@ -92,4 +92,6 @@ function showPenalty() {
   setTimeout(() => msg.remove(), 2000);
 }
 
-setInterval(createElement, 1000);
+document.addEventListener('DOMContentLoaded', () => {
+  setInterval(createElement, 1000);
+});
