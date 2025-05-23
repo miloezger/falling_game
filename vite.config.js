@@ -2,6 +2,9 @@ export default {
   server: {
     open: true
   },
+  preview: {
+    open: true
+  },
   build: {
     assetsDir: 'assets',
     rollupOptions: {
@@ -9,5 +12,6 @@ export default {
         main: './index.html'
       }
     }
-  }
+  },
+  publicDir: 'public'
 }
