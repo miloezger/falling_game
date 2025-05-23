@@ -26,8 +26,8 @@ body {
 
 .falling { 
   position: absolute; 
-  width: 100px; 
-  height: 100px; 
+  width: 200px; /* 2x larger */
+  height: 200px; /* 2x larger */
   animation: fall linear infinite;
   cursor: none;
   background-size: contain;
@@ -39,6 +39,8 @@ body {
 .penalty {
   background-color: #000;
   border-radius: 8px;
+  width: 100px;
+  height: 100px;
 }
 
 @keyframes fall {
