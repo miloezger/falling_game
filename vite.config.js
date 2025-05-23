@@ -9,7 +9,12 @@ export default {
         main: 'index.html'
       },
       output: {
-        assetFileNames: 'assets/[name][extname]'
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name.endsWith('.png')) {
+            return 'assets/images/[name][extname]';
+          }
+          return 'assets/[name][extname]';
+        }
       }
     }
   }
