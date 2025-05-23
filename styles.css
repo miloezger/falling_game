@@ -37,10 +37,8 @@ body {
 }
 
 .penalty {
-  background-color: #000;
-  border-radius: 8px;
-  width: 100px;
-  height: 100px;
+  width: 160px; /* 2x larger than original 80px */
+  height: 160px; /* 2x larger than original 80px */
 }
 
 @keyframes fall {
