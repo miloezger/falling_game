@@ -5,11 +5,11 @@ document.addEventListener('mousemove', (e) => {
 });
 
 const images = [
-  '/images/yellow.png',
-  '/images/red.png',
-  '/images/brown.png',
-  '/images/orange.png',
-  '/images/green.png'
+  './images/yellow.png',
+  './images/red.png',
+  './images/brown.png',
+  './images/orange.png',
+  './images/green.png'
 ];
 
 let points = 0;
@@ -19,7 +19,7 @@ function createElement() {
   const isPenalty = Math.random() < 0.35; // 35% chance for penalty item
 
   if (isPenalty) {
-    el.style.backgroundImage = 'url(/images/fail.png)';
+    el.style.backgroundImage = 'url(./images/fail.png)';
     el.className = 'falling penalty';
   } else {
     el.style.backgroundImage = `url(${images[Math.floor(Math.random() * images.length)]})`;

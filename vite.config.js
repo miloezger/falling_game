@@ -7,8 +7,10 @@ export default {
     rollupOptions: {
       input: {
         main: 'index.html'
+      },
+      output: {
+        assetFileNames: 'assets/[name][extname]'
       }
     }
-  },
-  publicDir: 'images'
+  }
 }
