@@ -29,10 +29,9 @@
 
     function createElement() {
       const el = document.createElement('div');
-      const isPenalty = Math.random() < 0.2; // 20% chance for penalty item
+      const isPenalty = Math.random() < 0.2; // 20% chance for penalty rectangle
 
       if (isPenalty) {
-        el.style.backgroundImage = 'url(https://raw.githubusercontent.com/stackblitz/content/main/ff-pill.png)';
         el.className = 'falling penalty';
       } else {
         el.style.backgroundImage = `url(${images[Math.floor(Math.random() * images.length)]})`;
