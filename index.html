@@ -18,11 +18,11 @@
     });
 
     const images = [
-      'images/yellow.png',
-      'images/red.png',
-      'images/brown.png',
-      'images/orange.png',
-      'images/green.png'
+      'https://raw.githubusercontent.com/7rulnik/source-map-js/main/examples/square.png', // yellow
+      'https://raw.githubusercontent.com/7rulnik/source-map-js/main/examples/square-green.png', // red
+      'https://raw.githubusercontent.com/7rulnik/source-map-js/main/examples/square-orange.png', // brown
+      'https://raw.githubusercontent.com/7rulnik/source-map-js/main/examples/square-purple.png', // orange
+      'https://raw.githubusercontent.com/7rulnik/source-map-js/main/examples/square-red.png' // green
     ];
 
     let points = 0;
@@ -32,7 +32,7 @@
       const isPenalty = Math.random() < 0.2; // 20% chance for penalty item
 
       if (isPenalty) {
-        el.style.backgroundImage = 'url(images/fail.png)';
+        el.style.backgroundImage = 'url(https://raw.githubusercontent.com/7rulnik/source-map-js/main/examples/square-black.png)';
         el.className = 'falling penalty';
       } else {
         el.style.backgroundImage = `url(${images[Math.floor(Math.random() * images.length)]})`;
