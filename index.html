@@ -26,11 +26,11 @@
     });
 
     const images = [
-      '/images/brown.png',
-      '/images/green.png',
-      '/images/orange.png',
-      '/images/red.png',
-      '/images/yellow.png'
+      'assets/brown.png',
+      'assets/green.png',
+      'assets/orange.png',
+      'assets/red.png',
+      'assets/yellow.png'
     ];
 
     let points = 0;
@@ -46,7 +46,7 @@
       
       // Also preload the penalty image
       const penaltyImg = new Image();
-      penaltyImg.src = '/assets/fail.png';
+      penaltyImg.src = 'assets/fail.png';
       preloadedImages.push(penaltyImg);
       
       console.log('Preloaded images:', preloadedImages.length);
@@ -60,10 +60,10 @@
       const isPenalty = Math.random() < 0.2; // 20% chance for penalty item
       
       // Define the image source before creating the Image object
-      const currentImage = isPenalty ? '/assets/fail.png' : images[Math.floor(Math.random() * images.length)];
+      const currentImage = isPenalty ? 'assets/fail.png' : images[Math.floor(Math.random() * images.length)];
 
       if (isPenalty) {
-        el.style.backgroundImage = 'url(/assets/fail.png)';
+        el.style.backgroundImage = 'url(assets/fail.png)';
         el.className = 'falling penalty';
       } else {
         el.style.backgroundImage = `url(${currentImage})`;
