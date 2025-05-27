@@ -22,6 +22,21 @@ body {
   z-index: -1;
 }
 
+.logo-container {
+  position: fixed;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+}
+
+.logo {
+  max-width: 200px;
+  height: auto;
+}
+
 .custom-cursor {
   position: fixed;
   width: 30px;
