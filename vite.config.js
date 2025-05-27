@@ -35,5 +35,7 @@ export default {
       }
     }
   },
-  publicDir: 'public'
+  publicDir: 'public',
+  // Ensure both images and assets folders are copied to the dist directory
+  assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.svg', '**/*.mp4', '**/*.webm']
 }
