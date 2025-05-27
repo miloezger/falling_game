@@ -72,6 +72,12 @@ body {
   background-position: center;
   user-select: none;
   z-index: 10;
+  /* Debug border */
+  border: 2px solid red;
+}
+
+.falling.loaded {
+  border-color: green;
 }
 
 .penalty {
