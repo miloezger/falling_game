@@ -15,7 +15,7 @@
   <div class="logo-container">
     <img src="assets/logo-ricola.svg" alt="Game Logo" class="logo">
   </div>
-  <div id="counter">Points: 0</div>
+  <div id="counter">Points: <span class="points-value">0</span></div>
   <div class="custom-cursor" id="customCursor"></div>
 
   <script>
@@ -81,7 +81,7 @@
           if (points % 10 === 0) showAchievement();
         }
         
-        document.getElementById('counter').textContent = `Points: ${points}`;
+        document.querySelector('#counter .points-value').textContent = points;
       };
 
       document.body.appendChild(el);
