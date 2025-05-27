@@ -8,10 +8,10 @@
 </head>
 <body>
   <video id="background-video" autoplay loop muted playsinline>
-    <source src="media/videobg.mp4" type="video/mp4">
+    <source src="/media/videobg.mp4" type="video/mp4">
   </video>
   <div class="logo-container">
-    <img src="media/logo-ricola.svg" alt="Ricola Logo" class="logo">
+    <img src="/media/logo-ricola.svg" alt="Ricola Logo" class="logo">
   </div>
   <div id="counter">Points: 0</div>
   <div class="custom-cursor" id="customCursor"></div>
@@ -25,10 +25,10 @@
 
     const images = [
       // Removed fail.png from the regular images array
-      'images/green.png', // red
-      'images/orange.png', // brown
-      'images/purple.png', // orange
-      'images/red.png' // green
+      '/images/green.png', // red
+      '/images/orange.png', // brown
+      '/images/purple.png', // orange
+      '/images/red.png' // green
     ];
 
     let points = 0;
@@ -38,7 +38,7 @@
       const isPenalty = Math.random() < 0.2; // 20% chance for penalty item
 
       if (isPenalty) {
-        el.style.backgroundImage = 'url(images/fail.png)';
+        el.style.backgroundImage = 'url(/images/fail.png)';
         el.className = 'falling penalty';
       } else {
         el.style.backgroundImage = `url(${images[Math.floor(Math.random() * images.length)]})`;

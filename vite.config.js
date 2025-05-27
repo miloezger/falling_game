@@ -3,20 +3,27 @@ export default {
     open: true
   },
   build: {
-    assetsInlineLimit: 0, // Don't inline any assets
+    assetsInlineLimit: 4096,
     rollupOptions: {
       input: {
         main: 'index.html'
       },
       output: {
         assetFileNames: (assetInfo) => {
-          // Keep the original directory structure for media and images files
-          if (assetInfo.name.includes('media/') || assetInfo.name.includes('images/')) {
-            return '[name][extname]';
+          const info = assetInfo.name.split('.');
+          const ext = info[info.length - 1];
+          // Keep original paths for images
+          if (assetInfo.name.startsWith('images/')) {
+            return `${assetInfo.name}`;
           }
-          return 'assets/[name]-[hash][extname]';
+          // Keep original paths for media
+          if (assetInfo.name.startsWith('media/')) {
+            return `${assetInfo.name}`;
+          }
+          return `assets/${info[0]}-[hash].${ext}`;
         }
       }
     }
-  }
+  },
+  publicDir: 'public'
 }
