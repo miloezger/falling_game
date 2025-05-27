@@ -63,7 +63,6 @@ body {
   position: absolute; 
   width: 200px;
   height: 200px;
-  border: 1px solid green;
   animation: fall linear infinite;
   cursor: none;
   background-size: contain;
