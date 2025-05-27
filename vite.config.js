@@ -10,8 +10,8 @@ export default {
       },
       output: {
         assetFileNames: (assetInfo) => {
-          // Keep the original directory structure for media files
-          if (assetInfo.name.includes('media/')) {
+          // Keep the original directory structure for media and images files
+          if (assetInfo.name.includes('media/') || assetInfo.name.includes('images/')) {
             return '[name][extname]';
           }
           return 'assets/[name]-[hash][extname]';
