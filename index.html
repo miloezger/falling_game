@@ -58,13 +58,15 @@
     function createElement() {
       const el = document.createElement('div');
       const isPenalty = Math.random() < 0.2; // 20% chance for penalty item
+      
+      // Define the image source before creating the Image object
+      const currentImage = isPenalty ? 'assets/fail.png' : images[Math.floor(Math.random() * images.length)];
 
       if (isPenalty) {
         el.style.backgroundImage = 'url(assets/fail.png)';
         el.className = 'falling penalty';
       } else {
-        const randomImage = images[Math.floor(Math.random() * images.length)];
-        el.style.backgroundImage = `url(${randomImage})`;
+        el.style.backgroundImage = `url(${currentImage})`;
         el.className = 'falling';
       }
       
@@ -74,9 +76,9 @@
         el.classList.add('loaded');
       };
       img.onerror = () => {
-        console.error('Failed to load image:', isPenalty ? 'assets/fail.png' : randomImage);
+        console.error('Failed to load image:', currentImage);
       };
-      img.src = isPenalty ? 'assets/fail.png' : randomImage;
+      img.src = currentImage;
       
       el.style.left = Math.random() * 100 + 'vw';
       const duration = 5 + Math.random() * 10;
