@@ -13,14 +13,14 @@ export default {
           const info = assetInfo.name.split('.');
           const ext = info[info.length - 1];
           
-          // Keep original paths for images folder
-          if (/^images\//.test(assetInfo.name)) {
+          // Preserve images folder structure
+          if (assetInfo.name.startsWith('images/')) {
             return `images/${info[0].split('/').pop()}.${ext}`;
           }
           
           // Keep original paths for assets folder
-          if (/^assets\//.test(assetInfo.name)) {
-            return `assets/${info[0].split('/').pop()}.${ext}`;
+          if (assetInfo.name.startsWith('assets/')) {
+            return `${assetInfo.name}`;
           }
           
           // Default handling for other assets
@@ -33,9 +33,11 @@ export default {
         chunkFileNames: 'assets/[name]-[hash].js',
         entryFileNames: 'assets/[name]-[hash].js'
       }
-    }
+    },
+    // Ensure images folder is copied to dist
+    copyPublicDir: true
   },
   publicDir: 'public',
-  // Ensure both images and assets folders are copied to the dist directory
+  // Make sure to include both images and assets directories
   assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.svg', '**/*.mp4', '**/*.webm']
 }
