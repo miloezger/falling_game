@@ -61,19 +61,20 @@ body {
 
 .falling { 
   position: absolute; 
-  width: 200px; /* 2x larger */
-  height: 200px; /* 2x larger */
+  width: 200px;
+  height: 200px;
   animation: fall linear infinite;
   cursor: none;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   user-select: none;
+  z-index: 10;
 }
 
 .penalty {
-  width: 160px; /* 2x larger than original 80px */
-  height: 160px; /* 2x larger than original 80px */
+  width: 160px;
+  height: 160px;
 }
 
 @keyframes fall {
@@ -90,6 +91,7 @@ body {
   transform: scale(0.5);
   animation: pulseOut 0.6s ease-out forwards;
   pointer-events: none;
+  z-index: 20;
 }
 
 @keyframes pulseOut {
