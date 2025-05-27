@@ -3,39 +3,20 @@ export default {
     open: true
   },
   build: {
-    assetsInlineLimit: 4096,
+    assetsInlineLimit: 0, // Don't inline any assets
     rollupOptions: {
       input: {
         main: 'index.html'
       },
       output: {
         assetFileNames: (assetInfo) => {
-          const info = assetInfo.name.split('.');
-          const ext = info[info.length - 1];
-          
-          // Keep original paths for images folder
-          if (/^images\//.test(assetInfo.name)) {
-            return `images/${info[0].split('/').pop()}.${ext}`;
+          // Keep the original directory structure for media files
+          if (assetInfo.name.includes('media/')) {
+            return '[name][extname]';
           }
-          
-          // Keep original paths for assets folder
-          if (/^assets\//.test(assetInfo.name)) {
-            return `assets/${info[0].split('/').pop()}.${ext}`;
-          }
-          
-          // Default handling for other assets
-          if (['png', 'jpg', 'jpeg', 'gif', 'svg', 'webp', 'avif', 'mp4', 'webm'].includes(ext)) {
-            return `assets/${info[0].split('/').pop()}.${ext}`;
-          }
-          
-          return `assets/${info[0]}-[hash].${ext}`;
-        },
-        chunkFileNames: 'assets/[name]-[hash].js',
-        entryFileNames: 'assets/[name]-[hash].js'
+          return 'assets/[name]-[hash][extname]';
+        }
       }
     }
-  },
-  publicDir: 'public',
-  // Ensure both images and assets folders are copied to the dist directory
-  assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.svg', '**/*.mp4', '**/*.webm']
+  }
 }
