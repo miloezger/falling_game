@@ -35,35 +35,15 @@
 
     let points = 0;
 
-    // Preload images to ensure they're available
-    function preloadImages() {
-      const preloadedImages = [];
-      images.forEach(src => {
-        const img = new Image();
-        img.src = src;
-        preloadedImages.push(img);
-      });
-      
-      // Also preload the penalty image
-      const penaltyImg = new Image();
-      penaltyImg.src = '/assets/fail.png';
-      preloadedImages.push(penaltyImg);
-      
-      console.log('Preloaded images:', preloadedImages.length);
-    }
-    
-    // Call preload function
-    preloadImages();
-
     function createElement() {
       const el = document.createElement('div');
       const isPenalty = Math.random() < 0.2; // 20% chance for penalty item
       
-      // Define the image source before creating the Image object
+      // Define the image source
       const currentImage = isPenalty ? '/assets/fail.png' : images[Math.floor(Math.random() * images.length)];
 
       if (isPenalty) {
-        el.style.backgroundImage = 'url(/assets/fail.png)';
+        el.style.backgroundImage = `url(${currentImage})`;
         el.className = 'falling penalty';
       } else {
         el.style.backgroundImage = `url(${currentImage})`;
