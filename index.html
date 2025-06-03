@@ -9,11 +9,11 @@
 <body>
   <div class="video-container">
     <video autoplay muted loop id="background-video">
-      <source src="assets/videobg.mp4" type="video/mp4">
+      <source src="/assets/videobg.mp4" type="video/mp4">
     </video>
   </div>
   <div class="logo-container">
-    <img src="assets/logo-ricola.svg" alt="Game Logo" class="logo">
+    <img src="/assets/logo-ricola.svg" alt="Game Logo" class="logo">
   </div>
   <div id="counter">Points: <span class="points-value">0</span></div>
   <div class="custom-cursor" id="customCursor"></div>
@@ -26,11 +26,11 @@
     });
 
     const images = [
-      'images/brown.png',
-      'images/green.png',
-      'images/orange.png',
-      'images/red.png',
-      'images/yellow.png'
+      '/images/brown.png',
+      '/images/green.png',
+      '/images/orange.png',
+      '/images/red.png',
+      '/images/yellow.png'
     ];
 
     let points = 0;
@@ -46,7 +46,7 @@
       
       // Also preload the penalty image
       const penaltyImg = new Image();
-      penaltyImg.src = 'assets/fail.png';
+      penaltyImg.src = '/assets/fail.png';
       preloadedImages.push(penaltyImg);
       
       console.log('Preloaded images:', preloadedImages.length);
@@ -60,10 +60,10 @@
       const isPenalty = Math.random() < 0.2; // 20% chance for penalty item
       
       // Define the image source before creating the Image object
-      const currentImage = isPenalty ? 'assets/fail.png' : images[Math.floor(Math.random() * images.length)];
+      const currentImage = isPenalty ? '/assets/fail.png' : images[Math.floor(Math.random() * images.length)];
 
       if (isPenalty) {
-        el.style.backgroundImage = 'url(assets/fail.png)';
+        el.style.backgroundImage = 'url(/assets/fail.png)';
         el.className = 'falling penalty';
       } else {
         el.style.backgroundImage = `url(${currentImage})`;
